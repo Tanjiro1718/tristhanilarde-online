@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page not found — Tristhan Ilarde</title>
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#d23b45" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem("theme");
+        if (!saved) {
+          saved = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.dataset.theme = saved;
+      } catch (error) {}
+    })();
+  </script>
+  <style>
+    :root {
+      --bg: #fdf6f5;
+      --surface: #ffffff;
+      --text: #231416;
+      --muted: #6f5a5c;
+      --border: rgba(80, 25, 30, 0.12);
+      --accent: #d23b45;
+      --accent-2: #d96a2b;
+      --shadow: 0 24px 60px -28px rgba(70, 20, 25, 0.28);
+    }
+    html[data-theme="dark"] {
+      --bg: #140c0e;
+      --surface: #1c1114;
+      --text: #f7eaea;
+      --muted: #bda6a8;
+      --border: rgba(240, 190, 190, 0.16);
+      --accent: #f2707b;
+      --accent-2: #f6a06a;
+      --shadow: 0 24px 60px -28px rgba(0, 0, 0, 0.85);
+    }
+    * { box-sizing: border-box; }
+    body {
+      min-height: 100vh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    .card {
+      width: min(560px, 100%);
+      padding: clamp(28px, 6vw, 48px);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+    .code {
+      display: inline-block;
+      margin: 0 0 12px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(210, 59, 69, 0.1);
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+    }
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(1.6rem, 5vw, 2.2rem);
+      line-height: 1.2;
+    }
+    p { margin: 0 0 22px; color: var(--muted); line-height: 1.6; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+    a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 20px;
+      border-radius: 999px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    a:hover { transform: translateY(-2px); }
+    .primary {
+      background: linear-gradient(120deg, var(--accent), var(--accent-2));
+      color: #ffffff;
+      box-shadow: 0 12px 24px -14px var(--accent);
+    }
+    .ghost { border: 1px solid var(--border); color: var(--text); }
+    .brand { margin-top: 26px; font-size: 0.82rem; color: var(--muted); }
+    @media (prefers-reduced-motion: reduce) {
+      a { transition: none; }
+      a:hover { transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <span class="code">404</span>
+    <h1>This page took a wrong turn.</h1>
+    <p>The page you are looking for does not exist or has been moved. Let's get you back to the resume.</p>
+    <div class="actions">
+      <a class="primary" href="/">Back to home</a>
+      <a class="ghost" href="mailto:tristhanilarde1718@gmail.com">Email me</a>
+    </div>
+    <p class="brand">Tristhan Ilarde · www.tristhanilarde.online</p>
+  </main>
+</body>
+</html>
