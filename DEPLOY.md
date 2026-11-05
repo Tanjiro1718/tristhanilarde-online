@@ -1,25 +1,26 @@
 # Deploying www.tristhanilarde.online with Cloudflare Pages
 
-This guide publishes the resume site with **Cloudflare Pages (Direct Upload)**,
+This guide publishes the resume site with **Cloudflare Pages connected to GitHub**,
 while the domain **tristhanilarde.online** stays registered at **Hostinger**.
 
 The site is static (HTML/CSS/JS) and needs no build command.
 
 - Canonical URL: `https://www.tristhanilarde.online`
+- GitHub repo: <https://github.com/Tanjiro1718/tristhanilarde-online>
 - Cloudflare account: sign in at <https://dash.cloudflare.com>
-- Prepared upload file: `tristhanilarde-site.zip` (drag-and-drop ready)
+- Fallback upload file: `tristhanilarde-site.zip` (drag-and-drop ready)
 
 ---
 
 ## Overview
 
 1. Add the domain to Cloudflare and change its nameservers at Hostinger.
-2. Create a Cloudflare Pages project and upload the site.
+2. Create a Cloudflare Pages project connected to the GitHub repo.
 3. Attach `www` and the apex domain to the Pages project.
 4. Redirect the apex domain to `www`.
 5. Enable HTTPS and test.
 
-You only do steps 1, 2, and 5 once. Future updates are just a new upload.
+You only do steps 1 and 2 once. Future updates are just `git push`.
 
 ---
 
@@ -56,13 +57,24 @@ You only do steps 1, 2, and 5 once. Future updates are just a new upload.
 
 ---
 
-## Step 3 — Create the Pages project (Direct Upload)
+## Step 3 — Create the Pages project from GitHub
+
+The code is already pushed to:
+
+```
+https://github.com/Tanjiro1718/tristhanilarde-online
+```
 
 1. In Cloudflare, go to **Workers & Pages**.
-2. Select **Create application → Get started → Drag and drop your files**.
-3. Project name: `tristhanilarde`
-4. Drag and drop **`tristhanilarde-site.zip`** (or the `dist` folder).
-5. Select **Deploy site**.
+2. Select **Create application → Pages → Connect to Git**.
+3. Authorize Cloudflare's GitHub app if prompted, then select:
+   - Repository: `Tanjiro1718/tristhanilarde-online`
+   - Branch: `main`
+4. Project name: `tristhanilarde`
+5. Framework preset: **None**
+6. Build command: leave empty
+7. Build output directory: `/`
+8. Select **Save and Deploy**.
 
 Your site is now live at:
 
@@ -72,6 +84,11 @@ https://tristhanilarde.pages.dev
 
 Test that URL before moving on. Refresh with Ctrl+F5 if you see an older cached
 copy.
+
+### Fallback: Direct Upload
+
+If you ever want to deploy without GitHub, create a **Direct Upload** project
+instead and drag in `tristhanilarde-site.zip` (or the `dist` folder).
 
 ---
 
@@ -162,19 +179,23 @@ Wait a few minutes, then confirm the padlock in the browser.
 
 ## Updating the site later
 
-Cloudflare Pages deployments are immutable. To publish changes:
+With Git integration, deployment is automatic:
 
-1. Edit the files locally.
-2. In the Pages project, select **Create a new deployment**.
-3. Drag in the updated folder or ZIP, then deploy.
+```powershell
+git add .
+git commit -m "Update resume"
+git push
+```
 
-If you edit the root files in this project, rebuild the ZIP first:
+Cloudflare detects the push to `main` and deploys the new version.
+
+If you use the Direct Upload fallback instead, rebuild the ZIP first:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\make-upload.ps1
 ```
 
-That script recreates `tristhanilarde-site.zip` from the latest files.
+Then create a new deployment and drag in the updated ZIP.
 
 ---
 
