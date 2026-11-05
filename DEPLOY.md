@@ -72,9 +72,17 @@ https://github.com/Tanjiro1718/tristhanilarde-online
    - Branch: `main`
 4. Project name: `tristhanilarde`
 5. Framework preset: **None**
-6. Build command: leave empty
-7. Build output directory: `/`
+6. Build command:
+
+   ```sh
+   rm -rf dist && mkdir -p dist && cp index.html styles.css script.js favicon.svg 404.html robots.txt sitemap.xml _headers dist/ && cp -r assets dist/
+   ```
+
+7. Build output directory: `dist`
 8. Select **Save and Deploy**.
+
+This copies only the public website files into `dist`, so `DEPLOY.md`,
+`make-upload.ps1`, `.htaccess`, and `.gitignore` are not published.
 
 Your site is now live at:
 
