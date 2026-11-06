@@ -237,13 +237,13 @@
           <article class="timeline-item reveal reveal-left" style="--d:.08s">
             <div class="timeline-card" data-spotlight>
               <div class="timeline-top">
-                <h3>Freelance Web Designer</h3>
+                <h3>Freelance Web Developer</h3>
                 <span class="timeline-date">2024 — Present</span>
               </div>
               <p class="timeline-company">Independent</p>
               <ul>
-                <li>Designed and launched portfolio and small-business websites for local clients.</li>
-                <li>Created simple brand systems, page layouts, and mobile-first design mockups.</li>
+                <li>Developed and launched portfolio and small-business websites for local clients.</li>
+                <li>Created simple brand systems, page layouts, and mobile-first prototypes.</li>
                 <li>Managed projects end to end, from requirements gathering to deployment.</li>
               </ul>
             </div>
@@ -531,6 +531,34 @@
           <span class="eyebrow">Contact</span>
           <h2>Let's build something together</h2>
           <p>Have a role, a project, or a question? Send me a message — I would be glad to talk.</p>
+          <form class="inquiry-form" id="inquiryForm" novalidate>
+            <div class="field-row">
+              <label class="field">
+                <span>Name</span>
+                <input type="text" name="name" autocomplete="name" placeholder="Your name" required />
+              </label>
+              <label class="field">
+                <span>Email</span>
+                <input type="email" name="email" autocomplete="email" placeholder="you@example.com" required />
+              </label>
+            </div>
+            <label class="field">
+              <span>Subject</span>
+              <input type="text" name="subject" placeholder="What is this about?" />
+            </label>
+            <label class="field">
+              <span>Message</span>
+              <textarea name="message" rows="5" placeholder="Tell me about the role, project, or question..." required></textarea>
+            </label>
+            <button class="btn btn-primary" type="submit">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                <path d="m22 2-7 20-4-9-9-4Z" />
+                <path d="M22 2 11 13" />
+              </svg>
+              Send inquiry via Gmail
+            </button>
+            <p class="form-note">Opens Gmail with your message ready — just press Send.</p>
+          </form>
           <p class="contact-email"><a href="mailto:tristhanilarde1718@gmail.com">tristhanilarde1718@gmail.com</a></p>
           <p class="contact-email"><a href="tel:+639494301400">0949 430 1400</a></p>
           <div class="contact-actions">

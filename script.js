@@ -219,6 +219,38 @@ document.querySelectorAll("[data-copy]").forEach((button) => {
   });
 });
 
+const inquiryForm = document.getElementById("inquiryForm");
+const ownerEmail = "tristhanilarde1718@gmail.com";
+
+if (inquiryForm) {
+  inquiryForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    if (!inquiryForm.checkValidity()) {
+      inquiryForm.reportValidity();
+      return;
+    }
+
+    const data = new FormData(inquiryForm);
+    const name = String(data.get("name") || "").trim();
+    const email = String(data.get("email") || "").trim();
+    const subject = String(data.get("subject") || "").trim();
+    const message = String(data.get("message") || "").trim();
+
+    const finalSubject = subject ? `${subject} — inquiry from ${name}` : `Portfolio inquiry from ${name}`;
+    const body = `${message}\n\n—\n${name}\n${email}`;
+
+    const gmailUrl =
+      "https://mail.google.com/mail/?view=cm&fs=1&tf=1" +
+      `&to=${encodeURIComponent(ownerEmail)}` +
+      `&su=${encodeURIComponent(finalSubject)}` +
+      `&body=${encodeURIComponent(body)}`;
+
+    window.open(gmailUrl, "_blank", "noopener,noreferrer");
+    showToast("Gmail opened — review and press Send.");
+  });
+}
+
 document.querySelectorAll(".avatar-photo").forEach((photo) => {
   const removePhoto = () => photo.remove();
   photo.addEventListener("error", removePhoto);
