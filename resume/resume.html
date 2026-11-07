@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tristhan Ilarde — Resume</title>
+<style>
+  @page {
+    size: A4;
+    margin: 12mm 13mm;
+  }
+
+  :root {
+    --ink: #14171c;
+    --muted: #4b5563;
+    --line: #d4d8de;
+    --accent: #b02a33;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  body {
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    font-size: 9.8pt;
+    line-height: 1.34;
+    color: var(--ink);
+    background: #fff;
+    max-width: 210mm;
+    margin: 0 auto;
+    padding: 12mm 13mm;
+  }
+
+  a {
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  /* Header */
+  .header {
+    text-align: center;
+    padding-bottom: 8pt;
+    border-bottom: 2px solid var(--ink);
+  }
+
+  .name {
+    font-size: 23pt;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    line-height: 1.05;
+  }
+
+  .role {
+    margin-top: 3pt;
+    font-size: 10.3pt;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.02em;
+  }
+
+  .contact {
+    margin-top: 5pt;
+    font-size: 8.7pt;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  .contact span {
+    white-space: nowrap;
+  }
+
+  .contact .sep {
+    margin: 0 5pt;
+    color: var(--line);
+  }
+
+  /* Sections */
+  .section {
+    margin-top: 9.5pt;
+  }
+
+  .section-title {
+    font-size: 9.4pt;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--ink);
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 2pt;
+    margin-bottom: 5pt;
+  }
+
+  p.summary {
+    text-align: justify;
+  }
+
+  /* Skills */
+  .skill-row {
+    display: flex;
+    gap: 8pt;
+    margin-bottom: 2.5pt;
+  }
+
+  .skill-row .label {
+    flex: 0 0 88pt;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .skill-row .value {
+    flex: 1;
+  }
+
+  /* Entries */
+  .entry {
+    margin-bottom: 6.2pt;
+  }
+
+  .entry:last-child {
+    margin-bottom: 0;
+  }
+
+  .entry-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 10pt;
+  }
+
+  .entry-title {
+    font-size: 10.3pt;
+    font-weight: 700;
+  }
+
+  .entry-sub {
+    font-size: 9.4pt;
+    font-weight: 600;
+    color: var(--accent);
+  }
+
+  .entry-org {
+    font-style: italic;
+    color: var(--muted);
+    font-size: 9.4pt;
+  }
+
+  .entry-meta {
+    flex: 0 0 auto;
+    font-size: 8.8pt;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  ul.bullets {
+    margin: 2.5pt 0 0 12pt;
+    padding: 0;
+  }
+
+  ul.bullets li {
+    margin-bottom: 1.5pt;
+  }
+
+  .project-tags {
+    font-size: 8.6pt;
+    color: var(--muted);
+    margin-top: 1.5pt;
+  }
+
+  .project-links {
+    font-size: 8.6pt;
+    margin-top: 1.5pt;
+    word-break: break-all;
+  }
+
+  .project-links a {
+    color: var(--accent);
+  }
+
+  .project-links .dot {
+    color: var(--line);
+    margin: 0 4pt;
+  }
+
+  .cert {
+    margin-bottom: 4pt;
+  }
+
+  .cert:last-child {
+    margin-bottom: 0;
+  }
+
+  .cert-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 10pt;
+  }
+
+  .cert-name {
+    font-weight: 700;
+  }
+
+  .cert-issuer {
+    color: var(--muted);
+    font-size: 9pt;
+  }
+
+  .cert-id {
+    font-size: 8.4pt;
+    color: var(--muted);
+    margin-top: 1pt;
+    word-break: break-all;
+  }
+
+  .cert-id .k {
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .two-col {
+    display: flex;
+    gap: 18pt;
+  }
+
+  .two-col > .col {
+    flex: 1;
+  }
+
+  @media print {
+    body {
+      padding: 0;
+    }
+
+    .section {
+      break-inside: avoid;
+    }
+
+    .entry {
+      break-inside: avoid;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <header class="header">
+    <h1 class="name">Tristhan Ilarde</h1>
+    <p class="role">Aspiring Web Developer &amp; IT Graduate</p>
+    <p class="contact">
+      <span>Philippines</span>
+      <span class="sep">|</span>
+      <span><a href="tel:+639494301400">0949 430 1400</a></span>
+      <span class="sep">|</span>
+      <span><a href="mailto:tristhanilarde1718@gmail.com">tristhanilarde1718@gmail.com</a></span>
+      <br />
+      <span><a href="https://www.tristhanilarde.online/">www.tristhanilarde.online</a></span>
+      <span class="sep">|</span>
+      <span><a href="https://www.linkedin.com/in/tristhan-ilarde-b31989447/">linkedin.com/in/tristhan-ilarde-b31989447</a></span>
+      <span class="sep">|</span>
+      <span><a href="https://github.com/Tanjiro1718">github.com/Tanjiro1718</a></span>
+    </p>
+  </header>
+
+  <section class="section">
+    <h2 class="section-title">Professional Summary</h2>
+    <p class="summary">
+      Aspiring web developer and BS Information Technology graduate (Class of 2027) from Isabela State
+      University with hands-on experience building responsive, accessible websites and a published
+      cross-platform application. Comfortable across the stack — from clean HTML, CSS, and JavaScript interfaces to
+      Django REST APIs and PostgreSQL databases. Known for clear communication, attention to detail, and
+      end-to-end project ownership.
+    </p>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Technical Skills</h2>
+    <div class="skill-row">
+      <span class="label">Languages</span>
+      <span class="value">HTML5, CSS3, JavaScript, SQL, Dart</span>
+    </div>
+    <div class="skill-row">
+      <span class="label">Frameworks</span>
+      <span class="value">React, Flutter, Django REST Framework, Bootstrap, Tailwind CSS</span>
+    </div>
+    <div class="skill-row">
+      <span class="label">Tools &amp; Platforms</span>
+      <span class="value">Git &amp; GitHub, VS Code, Figma, PostgreSQL, Netlify, Vercel, Canva, Google Play Console</span>
+    </div>
+    <div class="skill-row">
+      <span class="label">Design</span>
+      <span class="value">Responsive design, mobile-first prototyping, UI design</span>
+    </div>
+    <div class="skill-row">
+      <span class="label">Strengths</span>
+      <span class="value">Clear communication, problem solving, attention to detail, collaboration &amp; time management</span>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Experience</h2>
+
+    <div class="entry">
+      <div class="entry-head">
+        <div>
+          <span class="entry-title">Freelance Web Developer</span>
+          <span class="entry-org"> — Independent</span>
+        </div>
+        <span class="entry-meta">2024 – Present</span>
+      </div>
+      <ul class="bullets">
+        <li>Developed and launched portfolio and small-business websites for local clients.</li>
+        <li>Created simple brand systems, page layouts, and mobile-first prototypes.</li>
+        <li>Managed projects end to end, from requirements gathering to deployment.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <div>
+          <span class="entry-title">ISU NSTP Attendance App</span>
+          <span class="entry-org"> — Capstone Project, Isabela State University</span>
+        </div>
+        <span class="entry-meta">2025 – Present</span>
+      </div>
+      <ul class="bullets">
+        <li>Built a cross-platform Flutter app backed by a Django REST API for GPS-geofenced NSTP attendance.</li>
+        <li>Implemented live selfie/face verification, device binding, and instructor session tools.</li>
+        <li>Published the app on Google Play and maintained it through regular updates.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <div>
+          <span class="entry-title">IT Support Assistant</span>
+          <span class="entry-org"> — Campus IT Services</span>
+        </div>
+        <span class="entry-meta">2024</span>
+      </div>
+      <ul class="bullets">
+        <li>Assisted students and staff with account setup, software, and network issues.</li>
+        <li>Documented common fixes to speed up recurring support requests.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Projects</h2>
+    <div class="entry">
+      <div class="entry-head">
+        <div>
+          <span class="entry-title">ISU NSTP Attendance</span>
+          <span class="entry-org"> — Capstone Project</span>
+        </div>
+        <span class="entry-meta">Flutter · Django REST · PostgreSQL</span>
+      </div>
+      <p>
+        Cross-platform attendance system for Isabela State University that verifies check-ins using GPS
+        geofencing, live selfie/face matching, and device binding. Includes instructor session tools,
+        student excuse filing, and director reporting.
+      </p>
+      <p class="project-links">
+        <a href="https://play.google.com/store/apps/details?id=com.isu.cauayan.nstp_attendance">Google Play</a>
+        <span class="dot">·</span>
+        <a href="https://isu-nstp-1.onrender.com/">isu-nstp-1.onrender.com</a>
+        <span class="dot">·</span>
+        <a href="https://github.com/Tanjiro1718/isu_nstp">github.com/Tanjiro1718/isu_nstp</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Education</h2>
+
+    <div class="entry">
+      <div class="entry-head">
+        <div>
+          <span class="entry-title">BS Information Technology</span>
+          <span class="entry-org"> — Isabela State University</span>
+        </div>
+        <span class="entry-meta">Graduated 2027</span>
+      </div>
+      <p>Coursework in web development, databases, networking, and human-computer interaction.</p>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <div>
+          <span class="entry-title">Senior High School — HUMSS</span>
+          <span class="entry-org"> — Ballesteros, Aurora, Isabela</span>
+        </div>
+        <span class="entry-meta">2019 – 2021 · With Honors</span>
+      </div>
+      <p>Foundations in research, communication, and the social sciences.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Certifications</h2>
+
+    <div class="cert">
+      <div class="cert-line">
+        <span class="cert-name">Gamified Intelligent Cyber Aptitude and Skills Training (GICAST)</span>
+        <span class="entry-meta">20 May 2025</span>
+      </div>
+      <p class="cert-issuer">The Open University · OpenLearn — Verified</p>
+      <p class="cert-id">
+        <span class="k">Credential ID:</span> 7b3db456658e096fc3f652046e173777196f815d —
+        <a href="https://www.open.edu/openlearn/badges/badge.php?hash=7b3db456658e096fc3f652046e173777196f815d">verify</a>
+      </p>
+    </div>
+
+    <div class="cert">
+      <div class="cert-line">
+        <span class="cert-name">Introduction to Cyber Security: Stay Safe Online</span>
+        <span class="entry-meta">20 May 2025</span>
+      </div>
+      <p class="cert-issuer">The Open University · OpenLearn — Verified</p>
+      <p class="cert-id">
+        <span class="k">Credential ID:</span> aade9d6c7ef0c97edcbb523cd9899fea69c5b794 —
+        <a href="https://www.open.edu/openlearn/badges/badge.php?hash=aade9d6c7ef0c97edcbb523cd9899fea69c5b794">verify</a>
+      </p>
+    </div>
+  </section>
+
+</body>
+</html>

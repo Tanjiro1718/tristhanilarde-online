@@ -3,7 +3,6 @@ const header = document.getElementById("siteHeader");
 const menuToggle = document.getElementById("menuToggle");
 const nav = document.getElementById("primaryNav");
 const themeToggle = document.getElementById("themeToggle");
-const printButton = document.getElementById("printResume");
 const toast = document.getElementById("toast");
 const yearLabel = document.getElementById("year");
 
@@ -112,12 +111,6 @@ if (reduceMotion || !("IntersectionObserver" in window)) {
   );
 
   revealElements.forEach((element) => revealer.observe(element));
-}
-
-if (printButton) {
-  printButton.addEventListener("click", () => {
-    window.print();
-  });
 }
 
 const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
